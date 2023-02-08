@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import Card from './components/Card'
 import Navbar from './components/Navbar';
@@ -47,37 +47,37 @@ const products = [
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 5,
+    id: 8,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 6,
+    id: 9,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 7,
+    id: 10,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 5,
+    id: 11,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 6,
+    id: 12,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
   },
   {
-    id: 7,
+    id: 13,
     title: 'Cazadora Bomber',
     price: 70,
     src: 'cazadora-bomber.jpg'
@@ -92,14 +92,28 @@ function App() {
   //   setAdd(!add)
   // }
 
+  const addedButtons = document.querySelectorAll('button.btn.btn-warning')
+
+  console.log(addedButtons)
+
+  const [cartFilled, setCartFilled] = useState(false)
+
+  useEffect(function() {
+    if(addedButtons.length > 0) {
+      setCartFilled(true)
+      console.log('Hola')
+    }
+  }, [])
+
   return (
     <div className="App">
-      <Navbar filled={false}/>
+      <Navbar filled={cartFilled}/>
       <div className='content'>
         {
           products.map(product => {
             return (
               <Card 
+                key={product.id}
                 title={product.title}
                 price={product.price}
                 image={product.src}

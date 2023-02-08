@@ -6,12 +6,6 @@ function Card({ title, price, image }) {
 
   const [add, setAdd] = useState(false)
 
-  const addedProducts = []
-  const addToCart = () => {
-    setAdd(!add)
-    addedProducts.push('S')
-  }
-
   return(
     <div className='card-container'>
       <img 
@@ -24,7 +18,7 @@ function Card({ title, price, image }) {
       <p className='price'>
         {`${price}€`}
       </p>
-      <Button added={add} handleClick={addToCart}>{ add ? 'Added' : 'Add'}</Button>
+      <Button added={add} handleClick={ () => setAdd(!add) }>{ add ? 'Added' : 'Add'}</Button>
     </div>
   )
 }
