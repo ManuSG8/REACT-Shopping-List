@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.content {
+  width: 90%;
+  height: auto;
+  margin: 3.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+}
